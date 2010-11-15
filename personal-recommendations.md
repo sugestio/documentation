@@ -21,6 +21,15 @@ http://api.sugestio.com/sites/**{account}**/users/**{userid}**/recommendations.*
 
 ### Response
 
+#### HTTP status codes
+
+* **200 OK** - the response body contains recommendations.
+* **400 Bad Request** - required parameters are missing or provided parameters are malformed.
+* **404 Not Found** - there are no recommendations for this user.
+* **500 Internal Server Error** - indicates a problem on our end or with Amazon Web Services.
+
+#### Body
+
 The following attributes are always present in a response:
 
 * **itemid** - a string that uniquely identifies the item.
