@@ -1,0 +1,1 @@
+This repository holds the API documentation. Some of the features that are documented here, may still be in the testing phase. The [documentation](http://www.sugestio.com/documentation) on the website describes only those features that are currently available to the public.
