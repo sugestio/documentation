@@ -60,7 +60,7 @@ Some algorithms do not provide a certainty value. Item metadata is not always av
 
 ### Location filter
 
-Retrieved items must be near 40� 41' 20" N, 74� 2' 42.4" W, within a two mile radius:
+Retrieved items must be near 40° 41' 20" N, 74° 2' 42.4" W, within a two mile radius:
 
 	GET /sites/sandbox/users/1/recommendations.json?location_latlong=40.688889,-74.045111
 		&location_radius=2&location_unit=mi
