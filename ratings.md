@@ -5,7 +5,7 @@ The *detail* parameter of a consumption contains information about the rating sy
 
 ### Structure
 
-STAR:{max}:{min}:{value}
+STAR:**{max}**:**{min}**:**{value}**
 
 * **max** - the maximum number of that stars users can award.
 * **min** - the minimum number of that stars users can award.
@@ -25,7 +25,7 @@ A four-star voting system, users can rate content from zero to four. The user aw
 
 ### Structure
 
-THUMB:{value}
+THUMB:**{value}**
 
 * **value** - up or down.
 
@@ -43,7 +43,7 @@ Thumbs down:
 
 ### Structure
 
-	PERCENTAGE:{value}
+PERCENTAGE:**{value}**
 
 * **value** - the percentage awarded.
 
