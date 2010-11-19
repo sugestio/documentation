@@ -14,6 +14,11 @@ http://api.sugestio.com/sites/**{account}**/users
 
 * **account** - your account key.
 
+### Content-types
+
+* **application/x-www-form-urlencoded** - data fields will be submitted POST parameters.
+* **text/xml** - data fields will be submitted as xml data. 
+
 ### Data fields
 
 All fields are scalar and optional, unless indicated otherwise.
@@ -29,11 +34,6 @@ All fields are scalar and optional, unless indicated otherwise.
 	* **trust** - the level of trust that the user has in this friend. Between -1.0 and 1.0.
 * **apml** - URL of the user's Attention profile
 * **foaf** - URL of the user's FOAF profile
-
-### Content-types
-
-* **application/x-www-form-urlencoded** - POST parameters.
-* **text/xml** - Xml data. 
 
 ## Response
 
