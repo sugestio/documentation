@@ -52,7 +52,7 @@ All fields are scalar and optional, unless indicated otherwise.
 	Content-Type: application/x-www-form-urlencoded	
 
 
-	id=150&gender=M&birthday=1960-04-12T07:00:00
+	id=150&gender=M&birthday=1960-04-12
 	&friend[0][userid]=684&friend[0][trust]=0.8
 	&friend[1][userid]=12&friend[1][trust]=0.1
 	
@@ -70,7 +70,7 @@ Submit metadata for a single user:
 		<id>400</id>
 		<location_latlong>40.446195,-79.948862</location_latlong>
 		<gender>F</gender>
-		<birthday>1967-02-17T07:00:00</birthday>			
+		<birthday>1967-02-17</birthday>			
 		<apml>http://...</apml>
 		<foaf>http://...</foaf>
 	</user>
@@ -86,7 +86,7 @@ Submit metadata for multiple users in the same request:
 		<user>
 			<id>150</id>
 			<gender>M</gender>
-			<birthday>1960-04-12T07:00:00</birthday>
+			<birthday>1960-04-12</birthday>
 			<friend>
 				<userid>684</userid>
 				<trust>0.8</trust>
@@ -102,7 +102,7 @@ Submit metadata for multiple users in the same request:
 			<id>400</id>
 			<location_latlong>40.446195,-79.948862</location_latlong>
 			<gender>F</gender>
-			<birthday>1967-02-17T07:00:00</birthday>			
+			<birthday>1967-02-17</birthday>			
 			<apml>http://...</apml>
 			<foaf>http://...</foaf>
 		</user>
