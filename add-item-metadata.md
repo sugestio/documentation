@@ -54,8 +54,7 @@ All fields are scalar and optional, unless indicated otherwise.
 
 	POST /sites/sandbox/items
 	Host: api.sugestio.com		
-	Content-Type: application/x-www-form-urlencoded	
-
+	Content-Type: application/x-www-form-urlencoded
 
 	id=1&from=2010-09-16&until=2011-09-16
 	&location_latlong=40.446195,-79.948862
@@ -69,7 +68,6 @@ Submit metadata for a single item:
 	POST /sites/sandbox/items
 	Host: api.sugestio.com		
 	Content-Type: text/xml
-
 	
 	<item>
 		<id>400</id>
@@ -87,8 +85,7 @@ Submit metadata for multiple items in the same request:
 
 	POST /sites/sandbox/items
 	Host: api.sugestio.com		
-	Content-Type: text/xml
-	
+	Content-Type: text/xml	
 
 	<items>
 		<item>

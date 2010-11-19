@@ -69,7 +69,6 @@ The user rated the content 85%:
 	Host: api.sugestio.com		
 	Content-Type: text/xml
 
-
 	<consumptions>
 		<consumption>
 			<userid>1</itemid>

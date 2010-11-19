@@ -49,8 +49,7 @@ All fields are scalar and optional, unless indicated otherwise.
 
 	POST /sites/sandbox/users
 	Host: api.sugestio.com		
-	Content-Type: application/x-www-form-urlencoded	
-
+	Content-Type: application/x-www-form-urlencoded
 
 	id=150&gender=M&birthday=1960-04-12
 	&friend[0][userid]=684&friend[0][trust]=0.8
@@ -65,7 +64,6 @@ Submit metadata for a single user:
 	Host: api.sugestio.com		
 	Content-Type: text/xml
 
-
 	<user>
 		<id>400</id>
 		<location_latlong>40.446195,-79.948862</location_latlong>
@@ -79,8 +77,7 @@ Submit metadata for multiple users in the same request:
 
 	POST /sites/sandbox/users
 	Host: api.sugestio.com		
-	Content-Type: text/xml
-	
+	Content-Type: text/xml	
 
 	<users>
 		<user>

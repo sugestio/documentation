@@ -52,8 +52,7 @@ All fields are scalar and optional, unless indicated otherwise.
 
 	POST /sites/sandbox/consumptions
 	Host: api.sugestio.com		
-	Content-Type: application/x-www-form-urlencoded	
-
+	Content-Type: application/x-www-form-urlencoded
 	
 	userid=1&itemid=150&type=VIEW
 	&date=NOW&location_simple=home	
@@ -65,7 +64,6 @@ Submit metadata for a single consumption:
 	POST /sites/sandbox/consumptions
 	Host: api.sugestio.com		
 	Content-Type: text/xml
-
 	
 	<consumption>
 		<userid>1</itemid>
@@ -80,8 +78,7 @@ Submit metadata for multiple consumptions in the same request:
 
 	POST /sites/sandbox/consumptions
 	Host: api.sugestio.com		
-	Content-Type: text/xml
-	
+	Content-Type: text/xml	
 
 	<consumptions>
 		<consumption>

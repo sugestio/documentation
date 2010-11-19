@@ -52,7 +52,6 @@ An example of the long timestamp format:
 	Host: api.sugestio.com		
 	Content-Type: text/xml
 
-
 	<consumptions>
 		<consumption>
 			<userid>1</itemid>
