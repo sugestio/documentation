@@ -26,8 +26,8 @@ All fields are scalar and optional, unless indicated otherwise.
 * **id (required)** - a string that uniquely identifies the user. 
 * **location_latlong** - decimal degree coordinates of the user's home location.
 * **gender** - gender of the user. Possible values:
-	* **m** - male
-	* **f** - female
+	* **M** - male
+	* **F** - female
 * **birthday** - birthday of the user. See *timestamps* section for more information.
 * **friend (array)** - friends of this user. The optional trust value allows the construction of a trust-relationship structure between users. Sub-arguments:
 	* **userid (required)** - a string that uniquely identifies the friend.

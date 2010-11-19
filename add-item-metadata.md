@@ -26,8 +26,8 @@ All fields are scalar and optional, unless indicated otherwise.
 * **id (required)** - a string that uniquely identifies the item.
 * **title** - item title.
 * **available** - can this item be recommended? Supported values:
-	* **y** - yes. (default)
-	* **n** - no. Can be used to indicate that an item is out of stock.
+	* **Y** - yes. (default)
+	* **N** - no. Can be used to indicate that an item is out of stock.
 * **description_short** - a short description of the item. (e.g. abstract)
 * **description_full** - a full description of the item. (ex: page text)
 * **from** - do not recommend the item before this date. See *timestamps* section for more information.
