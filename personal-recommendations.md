@@ -1,11 +1,19 @@
 # Personal recommendations
-A user's *personal recommendations* are a list of items that might fit their taste. Recommendations consist of an Item ID and a predicted score. Additional attributes include the name of the algorithm that was used to generate the recommendation and a measure for the certainty of the prediction. Recommendations are sorted by descending score. 
+A user's personal recommendations are a list of items that might fit their taste. Recommendations consist of an Item ID and a predicted score. Additional attributes include the name of the algorithm that was used to generate the recommendation and a measure for the certainty of the prediction. Recommendations are sorted by descending score. 
 
-## Request method
+Supported formats:
+
+* csv
+* json
+* xml
+
+## Request
+
+### Method
 
 * GET
 
-## URL
+### URL
 
 http://api.sugestio.com/sites/**{account}**/users/**{userid}**/recommendations.**{format}**
 
@@ -13,7 +21,7 @@ http://api.sugestio.com/sites/**{account}**/users/**{userid}**/recommendations.*
 * **userid** - a string that uniquely identifies the user.
 * **format** - response format.
 
-## Query Parameters
+### Query parameters
 
 * **limit** - maximum number of recommendations to be retrieved.
 * **category** - retrieved items must (not) belong to one of these categories. Comma separated list.
@@ -27,12 +35,6 @@ http://api.sugestio.com/sites/**{account}**/users/**{userid}**/recommendations.*
 	* **mi** - mile
 
 ## Response
-
-### Response formats
-
-* csv
-* json
-* xml
 
 ### HTTP status codes
 
