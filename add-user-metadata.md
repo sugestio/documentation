@@ -1,6 +1,6 @@
 # Add user metadata
 
-This operation is used to create or update user profiles. Some algorithms can use demographic information to generate appropriate recommendations. 
+This operation is used to create or update user profiles. Some algorithms can use demographic information to generate appropriate recommendations. Metadata can be submitted to the service either as POST parameters or as an XML document. The service supports bulk operations when submitting data in XML format.
 
 ## Request
 
