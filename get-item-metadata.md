@@ -17,7 +17,7 @@ Supported formats:
 http://api.sugestio.com/sites/**{account}**/items/**{itemid}**.**{format}**
 
 * **account** - your account key.
-* **itemid ** - a string that uniquely identifies the item.
+* **itemid** - a string that uniquely identifies the item.
 * **format** - response format.
 
 ## Response

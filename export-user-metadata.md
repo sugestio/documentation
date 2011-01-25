@@ -23,7 +23,7 @@ http://api.sugestio.com/sites/**{account}**/users.**{format}**
 
 ### HTTP status codes
 
-* **202 Accepted** - the user metadata will be deleted.
+* **200 OK** - the response body contains user metadata.
 * **400 Bad Request** - required parameters are missing or provided parameters are malformed.
 * **500 Internal Server Error** - indicates a problem on our end or with Amazon Web Services.
 
@@ -55,7 +55,7 @@ http://api.sugestio.com/sites/**{account}**/users.**{format}**
 			<birthday>1960-04-12</birthday>
 		</user>
 		<user>
-		        <id>400</id>
+			<id>400</id>
 			<location_latlong>40.446195,-79.948862</location_latlong>
 			<gender>F</gender>
 			<birthday>1967-02-17</birthday>

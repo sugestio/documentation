@@ -16,7 +16,7 @@ Supported formats:
 http://api.sugestio.com/sites/**{account}**/consumptions/**{consumptionid}**.**{format}**
 
 * **account** - your account key.
-* **consumptionid ** - a string that uniquely identifies the consumption.
+* **consumptionid** - a string that uniquely identifies the consumption.
 * **format** - response format.
 
 ## Response
@@ -31,4 +31,4 @@ http://api.sugestio.com/sites/**{account}**/consumptions/**{consumptionid}**.**{
 
 Delete consumption 38069781-1bb8-4a5b-b07c-a9a4da0d2115: 
 
-	DELETE http://api.sugestio.com/sites/sandbox/consumptions/38069781-1bb8-4a5b-b07c-a9a4da0d2115.xml
+	DELETE /sites/sandbox/consumptions/38069781-1bb8-4a5b-b07c-a9a4da0d2115.xml

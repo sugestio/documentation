@@ -17,7 +17,7 @@ Supported formats:
 http://api.sugestio.com/sites/**{account}**/users/**{userid}**.**{format}**
 
 * **account** - your account key.
-* **userid ** - a string that uniquely identifies the user.
+* **userid** - a string that uniquely identifies the user.
 * **format** - response format.
 
 ## Response

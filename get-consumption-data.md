@@ -18,7 +18,7 @@ Supported formats:
 http://api.sugestio.com/sites/**{account}**/consumptions/**{consumptionid}**.**{format}**
 
 * **account** - your account key.
-* **consumptionid ** - a string that uniquely identifies the consumption.
+* **consumptionid** - a string that uniquely identifies the consumption.
 * **format** - response format.
 
 ## Response

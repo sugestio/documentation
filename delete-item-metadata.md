@@ -16,7 +16,7 @@ Supported formats:
 http://api.sugestio.com/sites/**{account}**/items/**{itemid}**.**{format}**
 
 * **account** - your account key.
-* **itemid ** - a string that uniquely identifies the item.
+* **itemid** - a string that uniquely identifies the item.
 * **format** - response format.
 
 ## Response
@@ -31,8 +31,8 @@ http://api.sugestio.com/sites/**{account}**/items/**{itemid}**.**{format}**
 
 Delete metadata associated with item 874: 
 
-	DELETE http://api.sugestio.com/sites/sandbox/items/874.csv
+	DELETE /sites/sandbox/items/874.csv
 
 Delete metadata associated with item qa362fdd:
 
-	DELETE http://api.sugestio.com/sites/sandbox/items/qa362fdd.xml
+	DELETE /sites/sandbox/items/qa362fdd.xml

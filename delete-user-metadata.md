@@ -16,7 +16,7 @@ Supported formats:
 http://api.sugestio.com/sites/**{account}**/users/**{userid}**.**{format}**
 
 * **account** - your account key.
-* **userid ** - a string that uniquely identifies the user.
+* **userid** - a string that uniquely identifies the user.
 * **format** - response format.
 
 ## Response
@@ -32,8 +32,8 @@ http://api.sugestio.com/sites/**{account}**/users/**{userid}**.**{format}**
 
 Delete metadata associated with user 17: 
 
-	DELETE http://api.sugestio.com/sites/sandbox/users/17.json
+	DELETE /sites/sandbox/users/17.json
 
 Delete metadata associated with user ae54t16:
 
-	DELETE http://api.sugestio.com/sites/sandbox/users/ae54t16.xml
+	DELETE /sites/sandbox/users/ae54t16.xml
