@@ -23,7 +23,7 @@ http://api.sugestio.com/sites/**{account}**/users.**{format}**
 
 ### HTTP status codes
 
-* **200 OK** - the response body contains item metadata.
+* **200 OK** - the response body contains user metadata.
 * **400 Bad Request** - required parameters are missing or provided parameters are malformed.
 * **500 Internal Server Error** - indicates a problem on our end or with Amazon Web Services.
 
