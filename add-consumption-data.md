@@ -25,6 +25,7 @@ All fields are scalar and optional, unless indicated otherwise.
 
 * **userid (required)** - a string that uniquely identifies the user.
 * **itemid (required)** - a string that uniquely identifies the item.
+* **consumptionid** - a string that uniquely identifies the item. Automatically generated if this field is omitted.
 * **type** - the type of consumption. Supported values:
 	* **VIEW** - the user has viewed (or clicked) this item.
 	* **RATING** - the user has rated this item.
@@ -36,7 +37,7 @@ All fields are scalar and optional, unless indicated otherwise.
 * **detail** - detailed information about the consumption. The value of this field depends on the type of consumption. See *ratings* section for more information on submitting rating data.
 * **date** - the moment of consumption. See *timestamps* section for more information.
 * **location_simple** - location where the item is consumed. (e.g. *home*, *office*)
-* **location_latlong** - decimal degree coordinates of the item's location.
+* **location_latlong** - decimal degree coordinates of the consumption location.
 
 ## Response
 
