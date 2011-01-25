@@ -1,4 +1,4 @@
-# Export consumptions
+# Export consumption data
 Consumption data can be exported in bulk. It is also possible to retrieve a list of every consumption for a given user.
 
 Supported formats:
