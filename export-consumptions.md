@@ -48,7 +48,7 @@ The following attributes might also be present in a response:
 * **detail** - detailed information about the consumption. The value of this field depends on the type of consumption. See *ratings* section for more information on submitting rating data.
 * **date** - the moment of consumption expressed as a UNIX timestamp. See *timestamps* section for more information.
 * **location_simple** - location where the item is consumed. (e.g. *home*, *office*)
-* **location_latlong** - decimal degree coordinates of the item's location.
+* **location_latlong** - decimal degree coordinates of the consumption location.
 
 ### Response formats
 
