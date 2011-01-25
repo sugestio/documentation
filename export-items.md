@@ -1,4 +1,4 @@
-# Export consumptions
+# Export item metadata
 Item metadata can be exported in bulk.
 
 Supported formats:
