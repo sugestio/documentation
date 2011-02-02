@@ -25,6 +25,12 @@ http://api.sugestio.com/sites/**{account}**/users/**{userid}**/recommendations.*
 
 * **limit** - maximum number of recommendations to be retrieved.
 * **category** - retrieved items must (not) belong to one of these categories. Comma separated list.
+* **time** - retrieved items may be recommended at this time; **from** <= time <= **until**. See *item metadata* and *timestamps* sections for more information.
+* **time_radius** - retrieved items may be recommended within this time frame.
+* **time_unit** - unit of the time_radius parameter. Supported units:
+	* **m** - minutes
+	* **h** - hours
+	* **d** - days
 * **location_latlong** - retrieved items must be near these decimal degree coordinates.
 * **location_radius** - retrieved items must be within this radius of the location_latlong parameter.
 * **location_unit** - unit of the location_radius parameter. Supported units:
@@ -84,6 +90,20 @@ Retrieved items must belong to category A or B, but not category C:
 Retrieved items must belong to category A or C, but not category B or D:
 
 	GET /sites/sandbox/users/1/recommendations.json?category=A,!B,C,!D
+
+### Time filter
+
+Retrieved items must be available for recommendation on February 1, 2011 at 3PM GMT:
+
+	GET /sites/sandbox/users/1/recommendations.json?time=2011-02-01T15:00
+
+Retrieved items must be available for recommendation on February 1, 2011 at 3PM or sometime during the next two hours:
+
+	GET /sites/sandbox/users/1/recommendations.json?time=2011-02-01T15:00&time_radius=2&time_unit=h
+
+Retrieved items must be available for recommendation right now:
+
+	GET /sites/sandbox/users/1/recommendations.json?time=NOW
 
 ### Combining filters
 
