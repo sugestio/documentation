@@ -1,5 +1,5 @@
 # Get consumption data
-Consumption data that was previously submitted, can be retrieved with this operation.
+Consumption data that was previously submitted, can be retrieved with this operation. Consumptions can be retrieved individually by referring to the consumption id. It is also possible to retrieve a list of every consumption for a given user or a specific user-item pair.
 
 Supported formats:
 
@@ -13,12 +13,25 @@ Supported formats:
 
 * GET
 
-### URL
+### URLs
 
 http://api.sugestio.com/sites/**{account}**/consumptions/**{consumptionid}**.**{format}**
 
 * **account** - your account key.
 * **consumptionid** - a string that uniquely identifies the consumption.
+* **format** - response format.
+
+http://api.sugestio.com/sites/**{account}**/users/**{userid}**/consumptions.**{format}**
+
+* **account** - your account key.
+* **userid** - a string that uniquely identifies the user.
+* **format** - response format.
+
+http://api.sugestio.com/sites/**{account}**/users/**{userid}**/consumptions/**{itemid}**.**{format}**
+
+* **account** - your account key.
+* **userid** - a string that uniquely identifies the user.
+* **itemid** - a string that uniquely identifies the item.
 * **format** - response format.
 
 ## Response

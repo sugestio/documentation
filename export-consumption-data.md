@@ -1,5 +1,5 @@
 # Export consumption data
-Consumption data can be exported in bulk. It is also possible to retrieve a list of every consumption for a given user.
+Consumption data can be exported in bulk.
 
 Supported formats:
 
@@ -13,17 +13,11 @@ Supported formats:
 
 * GET
 
-### URLs
+### URL
 
 http://api.sugestio.com/sites/**{account}**/consumptions.**{format}**
 
 * **account** - your account key.
-* **format** - response format.
-
-http://api.sugestio.com/sites/**{account}**/users/**{userid}**/consumptions.**{format}**
-
-* **account** - your account key.
-* **userid** - a string that uniquely identifies the user.
 * **format** - response format.
 
 ## Response
