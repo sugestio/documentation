@@ -1,5 +1,5 @@
 # Delete consumption metadata
-Consumption data that was previously submitted, can be deleted. 
+Consumption data that was previously submitted, can be deleted individually by referring to the consumption id. It is also possible to delete all consumption data belonging to a particular user or a specific user-item pair.
 
 Supported formats:
 
@@ -11,12 +11,25 @@ Supported formats:
 
 * DELETE
 
-### URL
+### URLs
 
 http://api.sugestio.com/sites/**{account}**/consumptions/**{consumptionid}**.**{format}**
 
 * **account** - your account key.
 * **consumptionid** - a string that uniquely identifies the consumption.
+* **format** - response format.
+
+http://api.sugestio.com/sites/**{account}**/users/**{userid}**/consumptions.**{format}**
+
+* **account** - your account key.
+* **userid** - a string that uniquely identifies the user.
+* **format** - response format.
+
+http://api.sugestio.com/sites/**{account}**/users/**{userid}**/consumptions/**{itemid}**.**{format}**
+
+* **account** - your account key.
+* **userid** - a string that uniquely identifies the user.
+* **itemid** - a string that uniquely identifies the item.
 * **format** - response format.
 
 ## Response
@@ -32,3 +45,11 @@ http://api.sugestio.com/sites/**{account}**/consumptions/**{consumptionid}**.**{
 Delete consumption 38069781-1bb8-4a5b-b07c-a9a4da0d2115: 
 
 	DELETE /sites/sandbox/consumptions/38069781-1bb8-4a5b-b07c-a9a4da0d2115.xml
+
+Delete all consumption data of user A:
+
+	DELETE /sites/sandbox/users/A/consumptions.json
+
+Delete all consumptions of item X by user A:
+
+	DELETE /sites/sandbox/users/A/consumptions/X.csv
