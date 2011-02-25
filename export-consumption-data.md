@@ -68,7 +68,7 @@ In the following example, id, itemid, userid and type are available. The remaini
 		{
 			"id":"38069781-1bb8-4a5b-b07c-a9a4da0d2115",
 			"itemid":"2",
-			"score":"1",
+			"userid":"1",
 			"type":"PURCHASE"					
 		},
 		...
