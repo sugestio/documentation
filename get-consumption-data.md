@@ -67,7 +67,9 @@ In the following example, id, itemid, userid and type are available. The remaini
 
 	6aa0f737-1d4c-4fbe-91b0-bd3ed1101b35,1,1,PURCHASE,,,,
 
-#### Json format
+#### Json format, retrieval by consumption id:
+
+In the following example, we have retrieved a single consumption by its unique identifier:
 
 	{
 		"id":"6aa0f737-1d4c-4fbe-91b0-bd3ed1101b35",
@@ -75,8 +77,27 @@ In the following example, id, itemid, userid and type are available. The remaini
 		"userid":"1",
 		"type":"PURCHASE"
 	}
+
+#### Json format, multiple consumptions:
+
+In this example, we have retrieved all consumptions of user 1:
+
+	[
+		{
+			"id":"6aa0f737-1d4c-4fbe-91b0-bd3ed1101b35",
+			"itemid":"1",
+			"userid":"1",
+			"type":"PURCHASE"
+		},
+		{
+			"id":"38069781-1bb8-4a5b-b07c-a9a4da0d2115",
+			"itemid":"2",
+			"userid":"1",
+			"type":"PURCHASE"
+		}		
+	]
 	
-#### Xml format
+#### Xml format, single consumption:
 
 	<consumption>
 		<id>6aa0f737-1d4c-4fbe-91b0-bd3ed1101b35</id>
@@ -84,3 +105,22 @@ In the following example, id, itemid, userid and type are available. The remaini
 		<userid>1</userid>
 		<type>PURCHASE</type>
 	</consumption>
+
+#### Xml format, multiple consumptions:
+
+In this example, we have retrieved all consumptions of item 1 by user 1:
+
+	<consumptions>
+		<consumption>
+			<id>c078d004-00f9-4d03-89a3-755d5abac55b</id>
+			<itemid>1</itemid>
+			<userid>1</userid>
+			<type>WISHLIST</type>
+		</consumption>
+		<consumption>
+			<id>6aa0f737-1d4c-4fbe-91b0-bd3ed1101b35</id>
+			<itemid>1</itemid>
+			<userid>1</userid>
+			<type>PURCHASE</type>
+		</consumption>
+	</consumptions>
