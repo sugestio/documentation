@@ -1,6 +1,6 @@
 # Add item metadata
 
-This operation is used to submit information about your items. Content-based algorithms use item metadata to generate recommendations. Fields such as *location_latlong* or *category* can also be used to filter personal recommendations. Metadata can be submitted to the service either as POST parameters or as an XML document. The service supports bulk operations when submitting data in XML format.
+This operation is used to submit information about your items. Content-based algorithms use item metadata to generate recommendations. Fields such as *location_latlong* or *category* can also be used to filter personal recommendations. Metadata can be submitted to the service either as POST parameters or in XML or JSON format. The service supports bulk operations when submitting data in XML or JSON format.
 
 ## Request
 
@@ -17,7 +17,10 @@ http://api.sugestio.com/sites/**{account}**/items
 ### Content-types
 
 * **application/x-www-form-urlencoded** - data fields will be submitted POST parameters.
-* **text/xml** - data fields will be submitted as xml data. 
+* **application/xml** - data fields will be submitted as XML data. 
+* **text/xml** - data fields will be submitted as XML data. 
+* **application/json** - data fields will be submitted as JSON data. 
+* **text/json** - data fields will be submitted as JSON data. 
 
 ### Data fields
 
@@ -61,7 +64,7 @@ All fields are scalar and optional, unless indicated otherwise.
 	&category[]=pop&category[]=rock
 	
 
-### Xml data
+### XML data
 
 Submit metadata for a single item:
 
@@ -105,3 +108,43 @@ Submit metadata for multiple items in the same request:
 			<category>rock</category>
 		</item>
 	</items>
+
+### JSON data
+
+Single item:
+
+	POST /sites/sandbox/items
+	Host: api.sugestio.com		
+	Content-Type: text/json
+	
+	{
+		"id" : "400",
+		"from" : "2010-09-16",
+		"until" : "2011-09-16",
+		"location_simple" : "Art House",
+		"creator" : [ "John", "James" ],
+		"category" : [ "pop", "rock" ]
+	}	
+	
+
+Multiple items:
+
+	POST /sites/sandbox/items
+	Host: api.sugestio.com		
+	Content-Type: text/json
+	
+	[
+		{
+			"id" : "400",
+			"from" : "2010-09-16",
+			"until" : "2011-09-16",
+			"location_simple" : "Art House",
+			"creator" : [ "John", "James" ],
+			"category" : [ "pop", "rock" ]
+		},
+		{
+			"id" : "700",
+			"location_latlong" : "40.446195,-79.948862",
+			"category" : [ "pop", "rock" ]
+		}
+	]	

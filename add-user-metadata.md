@@ -1,6 +1,6 @@
 # Add user metadata
 
-This operation is used to create or update user profiles. Some algorithms can use demographic information to generate appropriate recommendations. Metadata can be submitted to the service either as POST parameters or as an XML document. The service supports bulk operations when submitting data in XML format.
+This operation is used to create or update user profiles. Some algorithms can use demographic information to generate appropriate recommendations. Metadata can be submitted to the service either as POST parameters or in XML or JSON format. The service supports bulk operations when submitting data in XML or JSON format.
 
 ## Request
 
@@ -17,7 +17,10 @@ http://api.sugestio.com/sites/**{account}**/users
 ### Content-types
 
 * **application/x-www-form-urlencoded** - data fields will be submitted POST parameters.
-* **text/xml** - data fields will be submitted as xml data. 
+* **application/xml** - data fields will be submitted as XML data. 
+* **text/xml** - data fields will be submitted as XML data. 
+* **application/json** - data fields will be submitted as JSON data. 
+* **text/json** - data fields will be submitted as JSON data. 
 
 ### Data fields
 
@@ -56,7 +59,7 @@ All fields are scalar and optional, unless indicated otherwise.
 	&friend[1][userid]=12&friend[1][trust]=0.1
 	
 
-### Xml data
+### XML data
 
 Submit metadata for a single user:
 
@@ -103,5 +106,49 @@ Submit metadata for multiple users in the same request:
 			<apml>http://...</apml>
 			<foaf>http://...</foaf>
 		</user>
-		...
 	</users>	
+
+### JSON data
+
+Single user:
+
+	POST /sites/sandbox/users
+	Host: api.sugestio.com		
+	Content-Type: text/json
+
+	{
+		"id" : "400",
+		"location_latlong" : "40.446195,-79.948862",
+		"gender" : "F",
+		"birthday" : "1967-02-17",
+		"apml" : "http://...",
+		"foaf" : "http://..."
+	}
+
+Multiple users:
+
+	POST /sites/sandbox/users
+	Host: api.sugestio.com		
+	Content-Type: text/json	
+
+	[
+		{
+			"id" : "150",
+			"gender" : "M",
+			"birthday" : "1960-04-12",
+			"friend" : [ 
+				{ "userid" : "684", "trust" : "0.8" },
+				{ "userid" : "12", "trust" : "0.1" }
+			],
+			"apml" : "http://...",
+			"foaf" : "http://..."
+		},
+		{
+			"id" : "400",
+			"location_latlong" : "40.446195,-79.948862",
+			"gender" : "F",
+			"birthday" : "1967-02-17",
+			"apml" : "http://...",
+			"foaf" : "http://..."
+		}
+	]	

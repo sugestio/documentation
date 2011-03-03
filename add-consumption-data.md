@@ -1,6 +1,6 @@
 # Add consumption data
 
-At the core of the recommendation system is the collection of behavioral data. Submitting consumption data allows the analysis of users' behaviour. Special attention is given to item ratings. Consumption data can be submitted to the service either as POST parameters or as an XML document. The service supports bulk operations when submitting data in XML format.
+At the core of the recommendation system is the collection of behavioral data. Submitting consumption data allows the analysis of users' behaviour. Special attention is given to item ratings. Consumption data can be submitted to the service either as POST parameters or in XML or JSON format. The service supports bulk operations when submitting data in XML or JSON format.
 
 ## Request
 
@@ -8,16 +8,24 @@ At the core of the recommendation system is the collection of behavioral data. S
 
 * POST
 
-### URL
+### URLs
 
 http://api.sugestio.com/sites/**{account}**/consumptions
 
 * **account** - your account key.
 
+http://api.sugestio.com/sites/**{account}**/users/**{userid}**/consumptions
+
+* **account** - your account key.
+* **userid** - a string that uniquely identifies the user.
+
 ### Content-types
 
 * **application/x-www-form-urlencoded** - data fields will be submitted POST parameters.
-* **text/xml** - data fields will be submitted as xml data. 
+* **application/xml** - data fields will be submitted as XML data. 
+* **text/xml** - data fields will be submitted as XML data. 
+* **application/json** - data fields will be submitted as JSON data.
+* **text/json** - data fields will be submitted as JSON data.
 
 ### Data fields
 
@@ -51,16 +59,25 @@ All fields are scalar and optional, unless indicated otherwise.
 
 ### POST parameters
 
+A single consumption can be submitted per request:
+
 	POST /sites/sandbox/consumptions
 	Host: api.sugestio.com		
 	Content-Type: application/x-www-form-urlencoded
 	
-	userid=1&itemid=150&type=VIEW
-	&date=NOW&location_simple=home	
+	userid=1&itemid=150&type=VIEW&date=NOW	
 
-### Xml data
+It is not necessary to include the user id in the POST data if it is already present in the URL:
 
-Submit metadata for a single consumption:
+	POST /sites/sandbox/users/1/consumptions
+	Host: api.sugestio.com		
+	Content-Type: application/x-www-form-urlencoded
+	
+	itemid=150&type=VIEW&date=NOW	
+
+### XML data
+
+Submit a single consumption:
 
 	POST /sites/sandbox/consumptions
 	Host: api.sugestio.com		
@@ -97,3 +114,42 @@ Submit metadata for multiple consumptions in the same request:
 			<location_latlong>40.446195,-79.948862</location_latlong>
 		</consumption>
 	</consumptions>
+
+### JSON data
+
+Single consumption:
+
+	POST /sites/sandbox/consumptions
+	Host: api.sugestio.com		
+	Content-Type: text/json
+	
+	{
+		"userid" : "1",
+		"itemid" : "150",
+		"type" : "VIEW",
+		"date" : "NOW",
+		"location_simple" : "home"
+	}
+
+Multiple consumptions:
+
+	POST /sites/sandbox/consumptions
+	Host: api.sugestio.com		
+	Content-Type: text/json
+
+	[
+		{
+			"userid" : "1",
+			"itemid" : "150",
+			"type" : "VIEW",
+			"date" : "NOW",
+			"location_simple" : "home"
+		},
+		{
+			"userid" : "5",
+			"itemid" : "2142",
+			"type" : "VIEW",
+			"date" : "2010-08-05T21:30:54",
+			"location_latlong" : "40.446195,-79.948862"			
+		}
+	]
