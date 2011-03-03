@@ -13,11 +13,24 @@ Supported formats:
 
 * GET
 
-### URL
+### URLs
 
 http://api.sugestio.com/sites/**{account}**/consumptions.**{format}**
 
 * **account** - your account key.
+* **format** - response format.
+
+http://api.sugestio.com/sites/**{account}**/users/**{userid}**/consumptions.**{format}**
+
+* **account** - your account key.
+* **userid** - a string that uniquely identifies the user.
+* **format** - response format.
+
+http://api.sugestio.com/sites/**{account}**/users/**{userid}**/consumptions/**{itemid}**.**{format}**
+
+* **account** - your account key.
+* **userid** - a string that uniquely identifies the user.
+* **itemid** - a string that uniquely identifies the item.
 * **format** - response format.
 
 ## Response
