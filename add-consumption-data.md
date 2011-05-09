@@ -33,7 +33,7 @@ All fields are scalar and optional, unless indicated otherwise.
 
 * **userid (required)** - a string that uniquely identifies the user.
 * **itemid (required)** - a string that uniquely identifies the item.
-* **consumptionid** - a string that uniquely identifies the item. Automatically generated if this field is omitted.
+* **id** - a string that uniquely identifies the item. Automatically generated if this field is omitted.
 * **type** - the type of consumption. Supported values:
 	* **VIEW** - the user has viewed (or clicked) this item.
 	* **RATING** - the user has rated this item.
