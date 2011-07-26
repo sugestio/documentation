@@ -10,7 +10,7 @@ This operation is used to submit information about your items. Content-based alg
 
 ### URL
 
-http://api.sugestio.com/sites/**{account}**/items
+/sites/**{account}**/items
 
 * **account** - your account key.
 

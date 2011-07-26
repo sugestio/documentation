@@ -15,7 +15,7 @@ Supported formats:
 
 ### URL
 
-http://api.sugestio.com/sites/**{account}**/analytics.**{format}**
+/sites/**{account}**/analytics.**{format}**
 
 * **account** - your account key.
 * **format** - response format.

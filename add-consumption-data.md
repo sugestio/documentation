@@ -10,11 +10,11 @@ At the core of the recommendation system is the collection of behavioral data. S
 
 ### URLs
 
-http://api.sugestio.com/sites/**{account}**/consumptions
+/sites/**{account}**/consumptions
 
 * **account** - your account key.
 
-http://api.sugestio.com/sites/**{account}**/users/**{userid}**/consumptions
+/sites/**{account}**/users/**{userid}**/consumptions
 
 * **account** - your account key.
 * **userid** - a string that uniquely identifies the user.

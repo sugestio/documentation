@@ -10,7 +10,7 @@ This operation is used to create or update user profiles. Some algorithms can us
 
 ### URL
 
-http://api.sugestio.com/sites/**{account}**/users
+/sites/**{account}**/users
 
 * **account** - your account key.
 
@@ -51,7 +51,7 @@ All fields are scalar and optional, unless indicated otherwise.
 ### POST parameters
 
 	POST /sites/sandbox/users
-	Host: api.sugestio.com		
+	Host: api.sugestio.com
 	Content-Type: application/x-www-form-urlencoded
 
 	id=150&gender=M&birthday=1960-04-12
