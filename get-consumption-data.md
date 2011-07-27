@@ -15,19 +15,19 @@ Supported formats:
 
 ### URLs
 
-http://api.sugestio.com/sites/**{account}**/consumptions/**{consumptionid}**.**{format}**
+/sites/**{account}**/consumptions/**{consumptionid}**.**{format}**
 
 * **account** - your account key.
 * **consumptionid** - a string that uniquely identifies the consumption.
 * **format** - response format.
 
-http://api.sugestio.com/sites/**{account}**/users/**{userid}**/consumptions.**{format}**
+/sites/**{account}**/users/**{userid}**/consumptions.**{format}**
 
 * **account** - your account key.
 * **userid** - a string that uniquely identifies the user.
 * **format** - response format.
 
-http://api.sugestio.com/sites/**{account}**/users/**{userid}**/consumptions/**{itemid}**.**{format}**
+/sites/**{account}**/users/**{userid}**/consumptions/**{itemid}**.**{format}**
 
 * **account** - your account key.
 * **userid** - a string that uniquely identifies the user.

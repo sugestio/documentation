@@ -14,7 +14,7 @@ Supported formats:
 
 ### URL
 
-http://api.sugestio.com/sites/**{account}**/items.**{format}**
+/sites/**{account}**/items.**{format}**
 
 * **account** - your account key.
 * **format** - response format.

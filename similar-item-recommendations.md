@@ -15,7 +15,7 @@ Supported formats:
 
 ### URL
 
-http://api.sugestio.com/sites/**{account}**/items/**{itemid}**/similar.**{format}**
+/sites/**{account}**/items/**{itemid}**/similar.**{format}**
 
 * **account** - your account key.
 * **itemid** - a string that uniquely identifies the item.
