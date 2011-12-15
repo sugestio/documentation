@@ -25,12 +25,21 @@ Supported formats:
 
 * **limit** - maximum number of recommendations to be retrieved.
 * **category** - retrieved items must (not) belong to one of these categories. Comma separated list.
+* **category[]** - retrieved items must (not) belong to one of these categories. Array of values.
+* **segment** - retrieved items must (not) belong to one of these segments. Comma separated list.
+* **segment[]** - retrieved items must (not) belong to one of these segments. Array of values.
+* **tag** - retrieved items must (not) have any of these tags. Comma separated list.
+* **tag[]** - retrieved items must (not) have any of these tags. Array of values.
 * **time** - retrieved items may be recommended at this time; **from** <= time <= **until**. See *item metadata* and *timestamps* sections for more information.
 * **time_radius** - retrieved items may be recommended within this time frame.
 * **time_unit** - unit of the time_radius parameter. Supported units:
 	* **m** - minutes
 	* **h** - hours
 	* **d** - days
+* **location_simple** - retrieved items must (not) be in any of these locations. Comma separated list.
+* **location_simple[]** - retrieved items must (not) be in any of these locations. Array of values.
+* **location_city** - retrieved items must (not) be in any of these cities. Comma separated list.
+* **location_city[]** - retrieved items must (not) be in any of these cities. Array of values.
 * **location_latlong** - retrieved items must be near these decimal degree coordinates.
 * **location_radius** - retrieved items must be within this radius of the location_latlong parameter.
 * **location_unit** - unit of the location_radius parameter. Supported units:
@@ -83,13 +92,25 @@ Retrieved items must belong to category A or B:
 
 	GET /sites/sandbox/items/1/similar.json?category=A,B
 
+	- or - 
+
+	GET /sites/sandbox/items/1/similar.json?category[]=A&category[]=B
+
 Retrieved items must belong to category A or B, but not category C:
 
 	GET /sites/sandbox/items/1/similar.json?category=A,B,!C
 
+	- or - 
+
+	GET /sites/sandbox/items/1/similar.json?category[]=A&category[]=B&category[]=!C
+
 Retrieved items must belong to category A or C, but not category B or D:
 
 	GET /sites/sandbox/items/1/similar.json?category=A,!B,C,!D
+
+	- or - 
+
+	GET /sites/sandbox/items/1/similar.json?category[]=A&category[]=!B&category[]=C&category[]=!D
 
 ### Time filter
 
