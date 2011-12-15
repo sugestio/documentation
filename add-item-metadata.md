@@ -35,12 +35,12 @@ All fields are scalar and optional, unless indicated otherwise.
 * **description_full** - a full description of the item. (ex: page text)
 * **from** - do not recommend the item before this date. See *timestamps* section for more information.
 * **until** - do not recommend the item after this date. See *timestamps* section for more information.
-* **location_latlong** - decimal degree coordinates of the item's location.
 * **location_simple** - a string that uniquely identifies a location. e.g. a music venue, an art house.
 * **location_city** - a string that uniquely identifies a city. e.g. the city name or postal code.
+* **location_latlong** - decimal degree coordinates of the item's location.
+* **category (array)** - the categories that this item belongs to.
 * **creator (array)** - artist, manufacturer, uploader, ...
 * **tag (array)** - tags or keywords that describe the item.
-* **category (array)** - the categories that this item belongs to.
 * **segment (array)** - the content segment that this item belongs to.
 * **permalink** - a link to the item on your website.
 * **thumbnail** - a link to a picture of the item.

@@ -108,6 +108,10 @@ Retrieved items must belong to category A or C, but not category B or D:
 
 	GET /sites/sandbox/users/1/recommendations.json?category=A,!B,C,!D
 
+	- or - 
+
+	GET /sites/sandbox/users/1/recommendations.json?category[]=A&category[]=!B&category[]=C&category=!D
+
 ### Time filter
 
 Retrieved items must be available for recommendation on February 1, 2011 at 3PM GMT:
