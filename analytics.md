@@ -1,11 +1,8 @@
 # Analytics
-Sugestio provides two sets of metrics. A first set of parameters evaluates the performance of the recommendation algoritm and compares it against common techniques like popular recommendations and random recommendations. The second set of metrics relates to the sparsity of the data set.
+Sugestio periodically generates reports on the state of your data and the activity of your users. Weekly reports are generated each Monday. Monthly reports are generated at the start of each month. Reports consist of two section. The _totals_ section looks at the data set as a whole and shows long term trends. The _period_ section looks more closely at data from the previous week or month.
 
 Supported formats:
-
-* csv
 * json
-* xml
 
 ## Request
 
@@ -13,16 +10,20 @@ Supported formats:
 
 * GET
 
-### URL
+### URLs
 
-/sites/**{account}**/analytics.**{format}**
+/sites/**{account}**/analytics.json
+/sites/**{account}**/analytics/weekly.json
+/sites/**{account}**/analytics/monthly.json
 
 * **account** - your account key.
-* **format** - response format.
+
+/sites/**{account}**/analytics/**{id}**.json
+
+* **account** - your account key.
+* **id** - a string that uniquely identifies a report.
 
 ### Query parameters
-
-* **limit** - maximum number of records to be retrieved.
 
 ## Response
 
@@ -34,106 +35,102 @@ Supported formats:
 
 ### Body
 
-The response body consists of a series of analytics reports. A report has the following attributes:
+The response body consists of one or more analytics reports. Due to their large size, the _analytics.json_ resource contains a only a minimal representation of the available reports. Complete reports can then be retrieved through their unique identifier. The _weekly.json_ and _monthly.json_ resources contain multiple complete reports. A report has the following minimal attributes:
 
-* **id** - a string that uniquely identifies the report
-* **performance attributes :**
-	* **evaluation_Algorithm**
-	* **evaluation_F1**
-	* **evaluation_Precision**
-	* **evaluation_Recall**
-	* **evaluation_Recommendations**
-	* **evaluation_RelevantItems**
-	* **evaluation_RelevantRecommendations**
-	* **evaluation_TestSetFrom**
-	* **evaluation_TestSetUntil**
-	* **evaluation_TrainingSetFrom**
-	* **evaluation_TrainingSetUntil**
-	* **popular_F1**
-	* **popular_Precision**
-	* **popular_Recall**
-	* **popular_Recommendations**
-	* **popular_RelevantItems**
-	* **popular_RelevantRecommendations**
-	* **random_F1**
-	* **random_Precision**
-	* **random_Recall**
-	* **random_Recommendations**
-	* **random_RelevantItems**
-	* **random_RelevantRecommendations**
-* **sparsity attributes :**
-	* **sparsity_AvgConsumptionsPerItemInTestSet**
-	* **sparsity_AvgConsumptionsPerItemInTrainingSet**
-	* **sparsity_AvgConsumptionsPerItemInTrainingSetForTestItems**
-	* **sparsity_AvgConsumptionsPerUserInTestSet**
-	* **sparsity_AvgConsumptionsPerUserInTrainingSet**
-	* **sparsity_AvgConsumptionsPerUserInTrainingSetForTestUsers**
-	* **sparsity_ConsumptionsInTestSet**
-	* **sparsity_ConsumptionsInTrainingSet**
-	* **sparsity_ItemsInTestSet**
-	* **sparsity_ItemsInTrainingSet**
-	* **sparsity_PercTrainingItemsConsumedInTestSet**
-	* **sparsity_PercTrainingUsersConsumingInTestSet**
-	* **sparsity_SparsityTestMatrix**
-	* **sparsity_SparsityTrainingMatrix**
-	* **sparsity_UsersInTestSet**
-	* **sparsity_UsersInTrainingSet**
+* **id** - a string that uniquely identifies the report.
+* **type** - defines the evaluation period. Possibly values:
+	* **weekly** - the report contains an evaluation of a one week period.
+	* **monthly** - the report contains an evalation of a one month period.
+* **from_epoch** - beginning of the evaluation period
+* **from_readable** - beginning of the evaluation period.
+* **until_epoch** - end of the evaluation period
+* **until_readable** - end of the evaluation period.
 
-## Examples
+Complete reports also have the following attributes:
 
-### Response formats
+* **totals** - report section containing information on the entire data set. Subsections:
+	* **counts** - contains the following counters:
+		* **consumptions** - number of consumptions.
+		* **items** - number of items with metadata and/or consumption data.
+		* **items_active** - number of items with consumption data.
+		* **users** - number of users with metadata and/or consumption data.
+		* **users_active** - number of users with consumption data.
+	* **consumptions** - detailed analysis of a particular consumption type **(array)**
+		* **type** - consumption type.
+		* **detail** - consumption detail.
+		* **count** - number of consumptions.
+		* **users_active** - number of users that have consumptions of this type.		
+		* **user_distribution** - number of users with a given amount of consumptions of this type (P95)  **(array)**
+			* **consumptions** - number of consumptions
+			* **users** - number of users
+		* **items_active** - number of items that have consumptions of this type.
+		* **item_distribution** - number of items with a given amount of consumptions of this type (P95)  **(array)**
+			* **consumptions** - number of consumptions
+			* **users** - number of items
 
-For brevity, only partial output is shown.
-
-#### Csv format
-
-The first line contains the column names. Each remaining line represents a single report. Fields are separated by _comma_.
-
-	id,evaluation_Algorithm,evaluation_F1,evaluation_Precision,evaluation_Recall,...
-	e2ddcbed-3da4-4626-83db-409ab5a4ccf8,UserBasedCF,0.0238095238,0.0269554753,0.0213211498,...
-	03a49397-1cb4-4fe0-84a2-f26f8e5048e5,UserBasedCF,0.0246664424,0.0276035132,0.0222942846,...
-	...
-
-#### Json format
-
-	[
-		{
-			"id":"e2ddcbed-3da4-4626-83db-409ab5a4ccf8",
-			"evaluation_Algorithm":"UserBasedCF",
-			"evaluation_F1":"0.0238095238",
-			"evaluation_Precision":"0.0269554753",
-			"evaluation_Recall":"0.0213211498",
-			...
-		},
-		{
-			"id":"03a49397-1cb4-4fe0-84a2-f26f8e5048e5",
-			"evaluation_Algorithm":"UserBasedCF",
-			"evaluation_F1":"0.0246664424",
-			"evaluation_Precision":"0.0276035132",
-			"evaluation_Recall":"0.0222942846"
-			...
-		},
-		...
-	]
-
-#### Xml format
-
-	<analytics>
-		<report>
-			<id>86a10a63-e6a9-4621-a80d-daeb8cee3828</id>
-			<evaluation_Algorithm>UserBasedCF</evaluation_Algorithm>
-			<evaluation_F1>0.0239962211</evaluation_F1>
-			<evaluation_Precision>0.0299881936</evaluation_Precision>
-			<evaluation_Recall>0.0200000000</evaluation_Recall>
-			...
-		</report>
-		<report>
-			<id>bd543c28-0df3-4782-a7b2-05f295bd53f5</id>
-			<evaluation_Algorithm>UserBasedCF</evaluation_Algorithm>
-			<evaluation_F1>0.0236622748</evaluation_F1>
-			<evaluation_Precision>0.0294314381</evaluation_Precision>
-			<evaluation_Recall>0.0197841727</evaluation_Recall>
-			...
-		</report>
-		...
-	</analytics>
+* **period** - report section containing information on data from the evaluation period. Subsections:
+	* **counts** - contains the following counters:
+		* **consumptions** - number of consumptions.
+		* **items_active** - number of items that had consumptions during the evaluation period.
+		* **items_new** - number of items that had no consumptions prior to the evaluation period.
+		* **items_returning** - number of items that already had consumptions prior to the evaluation period.
+		* **users_active** - number of users that had consumptions during the evaluation period.
+		* **users_new** - number of users that had no consumptions prior to the evaluation period.
+		* **users_returning** - number of users that already had consumptions prior to the evaluation period.
+	* **consumptions** - detailed analysis of a particular consumption type **(array)**
+		* **type** - consumption type.
+		* **detail** - consumption detail.
+		* **count** - number of consumptions.
+		* **users_active** - number of users that have consumptions of this type.
+		* **users_returning** - number of users that already had consumptions of this type prior to this evaluation period.
+		* **users_new** - number of users that had no consumptions of this type prior to this evaluation period.
+		* **user_distribution** - number of users with a given amount of consumptions of this type (P95)  **(array)**
+			* **consumptions** - number of consumptions.
+			* **users** - number of users with this many consumptions.
+		* **items_active** - number of items that have consumptions of this type.
+		* **items_returning** - number of items that already had consumptions of this type prior to this evaluation period.
+		* **items_new** - number of items that had no consumptions of this type prior to this evaluation period.
+		* **item_distribution** - number of items with a given amount of consumptions of this type (P95)  **(array)**
+			* **consumptions** - number of consumptions.
+			* **users** - number of items with this many consumptions.
+	* **webservice** - an overview of the webservice usage during the evaluation period. Each element contains a counter for each potential HTTP response (e.g. 200 or 404):
+		* **get_recommendation**
+			* **200** - number of HTTP 200/OK responses.
+			* **400** - number of HTTP 400/Bad Request responses.
+			* **404** - number of HTTP 404/Not Found responses.
+			* **500** - number of HTTP 500/Internal Server Error responses.
+		* **get_similaritem**
+			* **200** - number of HTTP 200/OK responses.
+			* **400** - number of HTTP 400/Bad Request responses.
+			* **404** - number of HTTP 404/Not Found responses.
+			* **500** - number of HTTP 500/Internal Server Error responses.
+		* **get_similaruser**
+			* **200** - number of HTTP 200/OK responses.
+			* **400** - number of HTTP 400/Bad Request responses.
+			* **404** - number of HTTP 404/Not Found responses.
+			* **500** - number of HTTP 500/Internal Server Error responses.
+		* **post_consumption**
+			* **202** - number of HTTP 202/Accepted responses.
+			* **400** - number of HTTP 400/Bad Request responses.
+			* **500** - number of HTTP 500/Internal Server Error responses.
+		* **post_item**
+			* **202** - number of HTTP 202/Accepted responses.
+			* **400** - number of HTTP 400/Bad Request responses.
+			* **500** - number of HTTP 500/Internal Server Error responses.
+		* **post_user**
+			* **202** - number of HTTP 202/Accepted responses.
+			* **400** - nulber of HTTP 400/Bad Request responses.
+			* **500** - number of HTTP 500/Internal Server Error responses.
+		* **delete_consumption**
+			* **202** - number of HTTP 202/Accepted responses.
+			* **400** - number of HTTP 400/Bad Request responses.
+			* **500** - number of HTTP 500/Internal Server Error responses.
+		* **delete_item**
+			* **202** - number of HTTP 202/Accepted responses.
+			* **400** - number of HTTP 400/Bad Request responses.
+			* **500** - number of HTTP 500/Internal Server Error responses.
+		* **delete_user**
+			* **202** - number of HTTP 202/Accepted responses.
+			* **400** - number of HTTP 400/Bad Request responses.
+			* **500** - number of HTTP 500/Internal Server Error responses.
+		* ...
