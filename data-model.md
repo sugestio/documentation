@@ -71,6 +71,7 @@ All attributes are scalar and optional, unless indicated otherwise.
 * **available** - can this item be recommended? Supported values:
 	* **Y** - yes. (default)
 	* **N** - no. Can be used to indicate that an item is out of stock.
+* **published** - publication date. See *timestamps* section for more information.
 * **description_short** - a short description of the item. (e.g. abstract)
 * **description_full** - a full description of the item. (ex: page text)
 * **from** - do not recommend the item before this date. See *timestamps* section for more information.
